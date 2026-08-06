@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "full_name": "Yash Chandiramani",
+        "email": "yash@example.com",
+        "mobile": "9876543210",
+        "branch": "Computer Science",
+        "password": "Yash@123"
+    },
+    {
+        "id": 2,
+        "full_name": "Rahul Sharma",
+        "email": "rahul@gmail.com",
+        "mobile": "9123456789",
+        "branch": "Information Technology",
+        "password": "Rahul@123"
+    },
+    {
+        "id": 3,
+        "full_name": "Priya Verma",
+        "email": "priya@gmail.com",
+        "mobile": "9988776655",
+        "branch": "Electronics",
+        "password": "Priya@123"
+    },
+    {
+        "id": 4,
+        "full_name": "Aman Gupta",
+        "email": "aman@gmail.com",
+        "mobile": "9876123456",
+        "branch": "Mechanical",
+        "password": "Aman@123"
+    },
+    {
+        "id": 5,
+        "full_name": "Sneha Singh",
+        "email": "sneha@gmail.com",
+        "mobile": "9765432109",
+        "branch": "Civil",
+        "password": "Sneha@123"
+    },
+    {
+        "id": 6,
+        "full_name": "Rohan Mehta",
+        "email": "rohan@gmail.com",
+        "mobile": "9876541230",
+        "branch": "Computer Science",
+        "password": "Rohan@123"
+    },
+    {
+        "id": 7,
+        "full_name": "Neha Kapoor",
+        "email": "neha@gmail.com",
+        "mobile": "9871234560",
+        "branch": "Artificial Intelligence",
+        "password": "Neha@123"
+    },
+    {
+        "id": 8,
+        "full_name": "Karan Malhotra",
+        "email": "karan@gmail.com",
+        "mobile": "9012345678",
+        "branch": "Data Science",
+        "password": "Karan@123"
+    },
+    {
+        "id": 9,
+        "full_name": "Simran Kaur",
+        "email": "simran@gmail.com",
+        "mobile": "9345678901",
+        "branch": "Computer Science",
+        "password": "Simran@123"
+    },
+    {
+        "id": 10,
+        "full_name": "Aditya Joshi",
+        "email": "aditya@gmail.com",
+        "mobile": "9878901234",
+        "branch": "Electrical",
+        "password": "Aditya@123"
+    },
+    {
+        "id": 11,
+        "full_name": "Ritika Jain",
+        "email": "ritika@gmail.com",
+        "mobile": "9988112233",
+        "branch": "Computer Science",
+        "password": "Ritika@123"
+    },
+    {
+        "id": 12,
+        "full_name": "Mohit Agarwal",
+        "email": "mohit@gmail.com",
+        "mobile": "9812345678",
+        "branch": "Cyber Security",
+        "password": "Mohit@123"
+    },
+    {
+        "id": 13,
+        "full_name": "Ananya Sharma",
+        "email": "ananya@gmail.com",
+        "mobile": "9871112233",
+        "branch": "Information Technology",
+        "password": "Ananya@123"
+    },
+    {
+        "id": 14,
+        "full_name": "Harsh Patel",
+        "email": "harsh@gmail.com",
+        "mobile": "9898989898",
+        "branch": "Computer Science",
+        "password": "Harsh@123"
+    },
+    {
+        "id": 15,
+        "full_name": "Ishita Arora",
+        "email": "ishita@gmail.com",
+        "mobile": "9877776666",
+        "branch": "Artificial Intelligence",
+        "password": "Ishita@123"
+    }
+]
