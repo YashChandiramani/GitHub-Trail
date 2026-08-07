@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/YashChandiramani/student_score_predictor.git'
+                    url: 'https://github.com/YashChandiramani/GitHub-Trail/blob/main/jenkinsfile'
             }
         }
 
