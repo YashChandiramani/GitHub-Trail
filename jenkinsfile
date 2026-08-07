@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/YashChandiramani/student_score_predictor.git'
+            }
+        }
+
+        stage('Check Node.js') {
+            steps {
+                bat 'node --version'
+            }
+        }
+
+        stage('Run Registration Tests') {
+            steps {
+                bat 'node test2.js'
+            }
+        }
+    }
+}
