@@ -1,14 +1,8 @@
 pipeline {
+
     agent any
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/YashChandiramani/GitHub-Trail/blob/main/jenkinsfile'
-            }
-        }
 
         stage('Check Node.js') {
             steps {
