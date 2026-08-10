@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "full_name": "Ya",
-        "email": "ya",
-        "mobile": "98710",
-        "branch": "",
-        "password": ""
+        "full_name": "Yash Chandiramani",
+        "email": "yash@exmaple.com",
+        "mobile": "9876543210",
+        "branch": "Computer Science",
+        "password": "cse_yash1234"
     },
     {
         "id": 2,
@@ -118,5 +118,13 @@
         "mobile": "9877776666",
         "branch": "Artificial Intelligence",
         "password": "Ishita@123"
+    },
+    {
+        "id": 16,
+        "full_name": "yash",
+        "email": "chandi@gmail.com",
+        "mobile": "9462720011",
+        "branch": "CSE",
+        "password": "Yash@1234"
     }
 ]
