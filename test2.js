@@ -3,44 +3,44 @@ const fs = require("fs");
 let passed = true;
 
 // TC-01 : Check registration.html
-if (fs.existsSync("registration.html")) {
+if (fs.existsSync("registration1.html")) {
     console.log("TC-01 : registration.html exists : PASS");
 }
 else {
-    console.log("TC-01 : registration.html exists : FAIL");
+    console.log("TC-01 : registration1.html exists : FAIL");
     passed = false;
 }
 
 // TC-02 : Check style.css
 if (fs.existsSync("style.css")) {
-    console.log("TC-02 : style.css exists : PASS");
+    console.log("TC-02 : style2.css exists : PASS");
 }
 else {
-    console.log("TC-02 : style.css exists : FAIL");
+    console.log("TC-02 : style2.css exists : FAIL");
     passed = false;
 }
 
 // TC-03 : Check script.js
-if (fs.existsSync("script.js")) {
+if (fs.existsSync("script2.js")) {
     console.log("TC-03 : script.js exists : PASS");
 }
 else {
-    console.log("TC-03 : script.js exists : FAIL");
+    console.log("TC-03 : script2.js exists : FAIL");
     passed = false;
 }
 
 // TC-04 : Check student.json
-if (fs.existsSync("student.json")) {
+if (fs.existsSync("student4.json")) {
     console.log("TC-04 : student.json exists : PASS");
 }
 else {
-    console.log("TC-04 : student.json exists : FAIL");
+    console.log("TC-04 : student4.json exists : FAIL");
     passed = false;
 }
 
 // Read JSON
 const students = JSON.parse(
-    fs.readFileSync("student.json", "utf8")
+    fs.readFileSync("student4.json", "utf8")
 );
 
 const student = students[0];
