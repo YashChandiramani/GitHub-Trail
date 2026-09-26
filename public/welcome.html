@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card welcome-card">
+      <h1>Welcome 🎉</h1>
+      <p>You have successfully logged in.</p>
+
+      <div class="student-info">
+        <p><strong>Name:</strong> <span id="studentName"></span></p>
+        <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+        <p><strong>Course:</strong> <span id="studentCourse"></span></p>
+      </div>
+
+      <button id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    const student = JSON.parse(localStorage.getItem("loggedInStudent"));
+
+    if (!student) {
+      window.location.href = "/";
+    } else {
+      document.getElementById("studentName").textContent = student.name;
+      document.getElementById("studentEmail").textContent = student.email;
+      document.getElementById("studentCourse").textContent = student.course;
+    }
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      localStorage.removeItem("loggedInStudent");
+      window.location.href = "/";
+    });
+  </script>
+</body>
+</html>

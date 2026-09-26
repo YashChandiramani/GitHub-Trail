@@ -3,148 +3,104 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
+const DATA_DIR = path.join(__dirname, "data");
+const DATA_FILE = path.join(DATA_DIR, "students.json");
 
-const DATA_FILE = path.join(
-    __dirname,
-    "student.json"
-);
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
 
-
-// ===============================
-// Middleware
-// ===============================
+if (!fs.existsSync(DATA_FILE)) {
+  fs.writeFileSync(DATA_FILE, "[]", "utf8");
+}
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static(__dirname));
+function readStudents() {
+  try {
+    return JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+  } catch {
+    return [];
+  }
+}
 
+function writeStudents(students) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(students, null, 2), "utf8");
+}
 
-// ===============================
-// Register Student
-// ===============================
+// Register student
+app.post("/api/register", (req, res) => {
+  const { name, email, password, course } = req.body;
 
-app.post("/register", (req, res) => {
+  if (!name || !email || !password || !course) {
+    return res.status(400).json({ message: "All fields are required." });
+  }
 
-    try {
+  const students = readStudents();
 
-        const newStudent = req.body;
+  const existingStudent = students.find(
+    student => student.email.toLowerCase() === email.toLowerCase()
+  );
 
+  if (existingStudent) {
+    return res.status(409).json({ message: "Email is already registered." });
+  }
 
-        // Read existing students
+  const student = {
+    id: Date.now(),
+    name,
+    email,
+    password,
+    course
+  };
 
-        let students = [];
+  students.push(student);
+  writeStudents(students);
 
-        if (fs.existsSync(DATA_FILE)) {
-
-            const data =
-                fs.readFileSync(
-                    DATA_FILE,
-                    "utf8"
-                );
-
-            students =
-                data.trim()
-                    ? JSON.parse(data)
-                    : [];
-        }
-
-
-        // Generate next ID
-
-        const nextId =
-            students.length > 0
-                ? Math.max(
-                    ...students.map(
-                        student =>
-                            Number(student.id) || 0
-                    )
-                ) + 1
-                : 1;
-
-
-        // Create student object
-
-        const student = {
-
-            id: nextId,
-
-            full_name:
-                newStudent.full_name,
-
-            email:
-                newStudent.email,
-
-            mobile:
-                newStudent.mobile,
-
-            branch:
-                newStudent.branch,
-
-            password:
-                newStudent.password
-        };
-
-
-        // Add student
-
-        students.push(student);
-
-
-        // Save student.json
-
-        fs.writeFileSync(
-            DATA_FILE,
-            JSON.stringify(
-                students,
-                null,
-                4
-            ),
-            "utf8"
-        );
-
-
-        console.log(
-            "New student registered:",
-            student
-        );
-
-
-        res.status(201).json({
-
-            message:
-                "Student registered successfully",
-
-            student: student
-
-        });
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        res.status(500).json({
-
-            message:
-                "Failed to save student"
-
-        });
-
+  res.status(201).json({
+    message: "Registration successful!",
+    student: {
+      name: student.name,
+      email: student.email,
+      course: student.course
     }
-
+  });
 });
 
+// Login student
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
 
-// ===============================
-// Start Server
-// ===============================
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required." });
+  }
 
-app.listen(PORT, () => {
+  const students = readStudents();
 
-    console.log(
-        `Server running at http://localhost:${PORT}`
-    );
+  const student = students.find(
+    s =>
+      s.email.toLowerCase() === email.toLowerCase() &&
+      s.password === password
+  );
 
+  if (!student) {
+    return res.status(401).json({ message: "Invalid email or password." });
+  }
+
+  res.json({
+    message: "Login successful!",
+    student: {
+      name: student.name,
+      email: student.email,
+      course: student.course
+    }
+  });
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
