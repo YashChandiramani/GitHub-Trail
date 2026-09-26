@@ -1,13 +1,13 @@
-
 {
-  "name": "registration-page-testing",
+  "name": "student-registration-login",
   "version": "1.0.0",
-  "description": "Student registration page using Node.js and Express",
+  "description": "Student registration and login system using Node.js, Express, JSON and Docker",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^5.1.0"
   }
 }
